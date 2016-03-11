@@ -25,4 +25,4 @@ else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -ggdb -pg")
 endif()
 
-add_executable(text_wrapper ${SOURCES})
+add_executable(wrp ${SOURCES})
