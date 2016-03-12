@@ -8,6 +8,7 @@ struct Config {
   char *input;
   char *output;
   char delim;
+  char nl;
   size_t len;
   size_t tab;
 };

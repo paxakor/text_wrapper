@@ -1,28 +1,16 @@
-cmake_minimum_required(VERSION 3.4)
-project(text_wrapper)
-
-include_directories("./")
-
 set(SOURCES
-    main.c
-    config.c
+    src/config.c
+    src/main.c
+    src/utils.c
     )
 
 set(HEADERS
-    config.h
-    utils.h
-    help.h
+    src/config.h
+    src/help.h
+    src/utils.h
     )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c11")
-
-if(GIT_BRANCH STREQUAL "master")
-    message(STATUS "Release version")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Ofast")
-else()
-    message(STATUS "Developer version")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -ggdb -pg")
-endif()
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -Ofast")
 
 add_executable(wrp ${SOURCES})
