@@ -37,9 +37,15 @@ int main(int argc, char const* argv[]) {
   size_t  iter_in    = 0;
   size_t  iter_out   = 0;
   size_t  line_len   = 0;
+
+  for (size_t i = 0; i < conf.tab; ++i) {
+    buf_out[iter_out++] = conf.delim;
+  }
+  line_len = conf.tab;
+
   while ((read_bytes = read(0, buf_in, BUFSIZ_IN)) > 0) {
     iter_in = 0;
-    while (iter_in < read_bytes) {
+    while (iter_in < (size_t) read_bytes) {
       while (buf_in[iter_in] == conf.delim || buf_in[iter_in] == conf.nl) {
         ++iter_in;
       }
@@ -53,6 +59,17 @@ int main(int argc, char const* argv[]) {
         ptr = ptr_nl;
       }
       size_t len = ptr - (buf_in + iter_in);
+      if (line_len + len + 1 > conf.len) {
+        buf_out[iter_out++] = conf.nl;
+        for (size_t i = 0; i < conf.tab; ++i) {
+          buf_out[iter_out++] = conf.delim;
+        }
+        line_len = conf.tab;
+      } else if (line_len > conf.tab) {
+        buf_out[iter_out++] = conf.delim;
+        ++line_len;
+      }
+      line_len += len;
       if (len < BUFSIZ_OUT - iter_out) {
         memcpy(buf_out + iter_out, buf_in + iter_in, len);
         iter_out += len;
