@@ -24,6 +24,12 @@
 Basically, I don't know. But there are a few reasons.
 * I don't like high-level programming languages.
 * For a long time I had a wish: write something in pure C.
-* C allows read and write buffered.
-  It means that `wrp` don't load all file in RAM and works fast.
+* C allows to read and write buffered.
+  It means that `wrp` doesn't load all files in RAM.
 * In my opinion, C is better than C++.
+
+### Author
+Корозевцев Павел<br />
+email: paxakor@yandex.ru<br />
+[vkontakte](vk.com/paxakor)<br />
+[github](github.com/paxakor)
