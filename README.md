@@ -1,5 +1,5 @@
 # Text Wrapper
-`This tool should make any code more beautiful.`
+`This tool should make any code slimmer.`
 
 ## Features
 * Wrap the text.
@@ -13,20 +13,13 @@
   1. `cd path/to/project/directory`
   2. `mkdir build && cd build`
   3. `cmake .. && make`
+
   Done! Now you have binary `wrp` at build directory.
   You can move this standalone binary wherever you want.
 * Running:
   `wrp -h` or `wrp --help` for getting help.
 * The main usage (for me, of course):
   `wrp -i source.tex -o source_formated.tex`
-
-## Why I use C?
-Basically, I don't know. But there are a few reasons.
-* I don't like high-level programming languages.
-* For a long time I had a wish: write something in pure C.
-* C allows to read and write buffered.
-  It means that `wrp` doesn't load all files in RAM.
-* In my opinion, C is better than C++.
 
 ### Author
 Корозевцев Павел<br />
